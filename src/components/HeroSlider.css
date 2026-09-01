@@ -1,0 +1,88 @@
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 8s linear;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 18, 18, 0.7) 0%,
+    rgba(18, 18, 18, 0.4) 50%,
+    rgba(18, 18, 18, 0.8) 100%
+  );
+}
+
+.slide-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slide-title {
+  color: var(--text-primary);
+  max-width: 800px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-top: var(--spacing-16);
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: var(--spacing-8);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-3);
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slider-dot:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.slider-dot.active {
+  background-color: var(--accent-primary);
+  transform: scale(1.2);
+}
